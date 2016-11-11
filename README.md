@@ -4,7 +4,7 @@
 # Array
 This branch is about Array operation.
 
-#448 Find All Numbers Disappeared in an Array.
+# 448 Find All Numbers Disappeared in an Array.
 1. Swap each pair of numbers, and make the array in right order, then compare the elements with index.(Used)
 2. Mark each number with -1, the index in the new array which is positive are the answers.()
 
