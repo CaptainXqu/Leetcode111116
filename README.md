@@ -18,5 +18,5 @@ This branch is about Array operation.
     	    }
     	}
       //while condition: Make sure the number in right position and two equal numbers would not have been swapped. 
-十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十
+十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十
 
