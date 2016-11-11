@@ -27,6 +27,7 @@ This branch is about Array operation.
 
 1. Sorted the array first, then find the duplicated numbers.(Used)O(nlog(n)
 2. Mark each number with -1.
+
         for(int i= 0;i<nums.length;i++){
             int temp = Math.abs(nums[i]);
             if(nums[temp-1] < 0)
