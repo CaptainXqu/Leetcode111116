@@ -1,0 +1,31 @@
+//Case 1: Sort the array first,then find the duplicated numbers.
+public class Solution {
+    public List<Integer> findDuplicates(int[] nums) {
+        if(nums == null)
+            return null;
+        List<Integer> res = new ArrayList<Integer>();
+        Arrays.sort(nums);
+        for(int i= 0;i<nums.length-1;i++){//length-1
+        	if(nums[i] == nums[i+1]){
+                res.add(nums[i]);
+        	}
+        }
+        return res;
+    }
+}
+//Case 2: Mark the element with -1 in certain order, then check negative number in follows.
+public class Solution {
+    public List<Integer> findDuplicates(int[] nums) {
+        if(nums == null)
+            return null;
+        List<Integer> res = new ArrayList<Integer>();
+        for(int i= 0;i<nums.length;i++){
+            int temp = Math.abs(nums[i]);
+            if(nums[temp-1] < 0)
+                res.add(temp);
+            else
+                nums[temp-1] = -1 * nums[temp-1];
+        }
+        return res;
+    }
+}
