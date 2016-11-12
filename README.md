@@ -117,5 +117,12 @@ This branch is about Array operation.
     1->1
         
    十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十
-    
+#.283. Move Zeroes (Keep the others numbers in right order)
+
+          for(int j=0; j<count;j++){//count = total numbers of zero.
+            for(int i=0; i<length;i++){
+            }
+          }
+          
+   十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十          
     
