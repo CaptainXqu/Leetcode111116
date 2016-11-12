@@ -20,7 +20,7 @@ This branch is about Array operation.
       //while condition: Make sure the number in right position and two equal numbers would not have been swapped. 
       
 
-    十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十
+
 
 #.442. Find All Duplicates in an Array.
 (No extra space and T(n)=O(n))
@@ -36,7 +36,7 @@ This branch is about Array operation.
                 nums[temp-1] = -1 * nums[temp-1];
         }
     
-    十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十
+
     
 #.414. Third Maximum Number T(n)=O(n)
 
@@ -69,7 +69,6 @@ This branch is about Array operation.
             }
         
         
-    十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十
 
 #.289. Game of Life
 
@@ -116,7 +115,7 @@ This branch is about Array operation.
     1->0(Need to mark)
     1->1
         
-   十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十
+        
 #.283. Move Zeroes (Keep the others numbers in right order)
 
           for(int j=0; j<count;j++){//count = total numbers of zero.
@@ -124,5 +123,19 @@ This branch is about Array operation.
             }
           }
           
-   十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十          
-    
+#.268. Missing Number    
+  1.Sorted first,then compare each number with index
+  
+            if(nums[i]!=i){
+                order = false;
+                miss = i;
+                break;
+            }
+            else
+                order = true;
+  2.Find the missing number with calcalating.
+  
+        for(int i=0;i<=nums.length;i++)
+            total+=i;
+        for(int i=0;i<nums.length;i++)
+            sum+=nums[i];
