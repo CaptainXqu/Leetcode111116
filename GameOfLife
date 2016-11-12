@@ -1,0 +1,60 @@
+/*
+Live rules: Depends on the numbers of "1" from neighbors.
+
+For live cell: 
+numbers < 2:die
+2 <= numbers <= 3 :live
+numbers > 3:die
+
+For dead cell:
+numbers = 3:live
+*/
+public class Solution {
+    public void gameOfLife(int[][] board) {
+        
+        if(board == null)
+            return;
+        int m = board.length;
+        int n = board[0].length;
+        
+        for(int i=0; i<m;i++){
+            for(int j=0; j<n; j++){
+                if(board[i][j]==1){//live cell
+                    if(liveRules(board,i,j)<2 || liveRules(board,i,j)>3){//turn to dead(1->0)
+                        board[i][j] = -1;
+                    }
+                }else if(board[i][j]==0){//dead cell
+                    if(liveRules(board,i,j) == 3){//turn to alive(0->1)
+                        board[i][j] = 2;
+                    }
+                }
+            }//end for
+        }//end for
+        
+        for(int i=0; i<m;i++){//Reverse
+            for(int j=0; j<n; j++){
+                if(board[i][j]==-1)
+                    board[i][j]=0;
+                else if(board[i][j]==2)
+                    board[i][j]=1;
+            }//end for 
+        }//end for
+    }
+    
+    private int liveRules(int[][] board,int i,int j){
+        int m = board.length;
+        int n = board[0].length;
+        int count = 0;
+        for(int x=i-1;x<=i+1;x++){
+            for(int y=j-1;y<=j+1;y++){
+                if(x>=0 && x<m && y>=0 && y<n){//out of boundary
+                    if(Math.abs(board[x][y]) == 1)
+                        count++;
+                }
+            }//end for
+        }//end for
+        if(board[i][j]==1)//Take out the central point
+        	return count-1;
+        return count;
+    }
+}
