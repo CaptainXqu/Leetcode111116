@@ -70,3 +70,46 @@ This branch is about Array operation.
         
         
     十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十
+
+#.289. Game of Life
+
+(A)Live Rules
+    
+    if(board[i][j]==1){//live cell
+                    if(liveRules(board,i,j)<2 || liveRules(board,i,j)>3){//turn to dead(1->0)
+                        board[i][j] = -1;
+                    }
+                }else if(board[i][j]==0){//dead cell
+                    if(liveRules(board,i,j) == 3){//turn to alive(0->1)
+                        board[i][j] = 2;
+                    }
+                }
+(B)Reverse the array
+
+    for(int i=0; i<m;i++){//Reverse
+            for(int j=0; j<n; j++){
+                if(board[i][j]==-1)
+                    board[i][j]=0;
+                else if(board[i][j]==2)
+                    board[i][j]=1;
+            }//end for 
+        }//end for
+        
+(C)Find total numbers of "1" from neighbor(Have to take out central point)
+        
+        for(int x=i-1;x<=i+1;x++){
+            for(int y=j-1;y<=j+1;y++){
+                if(x>=0 && x<m && y>=0 && y<n){//out of boundary
+                    if(Math.abs(board[x][y]) == 1)
+                        count++;
+                }
+            }//end for
+        }//end for
+        if(board[i][j]==1)//Take out the central point
+        	return count-1;
+        return count;
+        
+
+    十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十
+    
+    
