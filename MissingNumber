@@ -1,0 +1,35 @@
+/*Case1:Sorted the array first(12ms)*/
+
+public class Solution {
+    public int missingNumber(int[] nums) {
+        int miss = 0;
+        boolean order = true;
+        Arrays.sort(nums);
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]!=i){
+                order = false;
+                miss = i;
+                break;
+            }
+            else
+                order = true;
+        }
+        if(order == true)
+            return nums.length;
+        return miss;
+    }
+}
+
+/*Catch the missing number by calculating (1ms)*/
+
+public class Solution {
+    public int missingNumber(int[] nums) {
+        int total = 0;
+        int sum = 0;
+        for(int i=0;i<=nums.length;i++)
+            total+=i;
+        for(int i=0;i<nums.length;i++)
+            sum+=nums[i];
+        return total-sum;
+    }
+}
