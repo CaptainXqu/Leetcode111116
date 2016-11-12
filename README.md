@@ -73,9 +73,9 @@ This branch is about Array operation.
 
 #.289. Game of Life
 
-(A)Live Rules
+1.Live Rules
     
-    if(board[i][j]==1){//live cell
+                if(board[i][j]==1){//live cell
                     if(liveRules(board,i,j)<2 || liveRules(board,i,j)>3){//turn to dead(1->0)
                         board[i][j] = -1;
                     }
@@ -84,9 +84,9 @@ This branch is about Array operation.
                         board[i][j] = 2;
                     }
                 }
-(B)Reverse the array
+2.Reverse the array
 
-    for(int i=0; i<m;i++){//Reverse
+        for(int i=0; i<m;i++){//Reverse
             for(int j=0; j<n; j++){
                 if(board[i][j]==-1)
                     board[i][j]=0;
@@ -95,7 +95,7 @@ This branch is about Array operation.
             }//end for 
         }//end for
         
-(C)Find total numbers of "1" from neighbor(Have to take out central point)
+3.Find total numbers of "1" from neighbor(Have to take out central point)
         
         for(int x=i-1;x<=i+1;x++){
             for(int y=j-1;y<=j+1;y++){
@@ -109,11 +109,12 @@ This branch is about Array operation.
         	return count-1;
         return count;
         
-(D)Required update the array at the same time, therefore actually there are four status:
-0->0
-0->1(Need to mark)
-1->0(Need to mark)
-1->1
+4.Required update the array at the same time, therefore actually there are four status:
+    0->0
+    0->1(Need to mark)
+    1->0(Need to mark)
+    1->1
+
 
     十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十
     
