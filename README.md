@@ -37,3 +37,36 @@ This branch is about Array operation.
         }
     
     十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十
+    
+#.414. Third Maximum Number T(n)=O(n)
+
+1. Sorted the array first, then use a different array catch the third max number.
+        
+        for(int i = nums.length-1;i>=0;i--){
+                if(i==nums.length-1){
+                     interval[2]=nums[i];
+                     count = 1;
+                }else if(nums[i] != nums[i+1] && count == 1){
+                    interval[1]=nums[i];
+                    count = 2;
+                }else if(nums[i] != nums[i+1] && count == 2){
+                    interval[0]=nums[i];
+                    count = 0;
+                }
+            }
+2. Sorted the array first, then use a hashset catch the third max number.
+            
+            Set<Integer> set = new HashSet<Integer>();
+            for(int i=nums.length-1;i>=0;i--){
+                if(!set.contains(nums[i])){
+                    set.add(nums[i]);
+                    count++;
+                }
+                if(count == 1)
+                    first = nums[i];
+                if(count == 3)
+                    return nums[i];
+            }
+        
+        
+    十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十
