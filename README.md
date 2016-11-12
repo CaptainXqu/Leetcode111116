@@ -139,3 +139,4 @@ This branch is about Array operation.
             total+=i;
         for(int i=0;i<nums.length;i++)
             sum+=nums[i];
+        return total-sum;
