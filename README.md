@@ -110,12 +110,12 @@ This branch is about Array operation.
         return count;
         
 4.Required update the array at the same time, therefore actually there are four status:
+
     0->0
     0->1(Need to mark)
     1->0(Need to mark)
     1->1
-
-
-    十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十
+        
+   十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十十
     
     
