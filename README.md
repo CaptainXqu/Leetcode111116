@@ -140,3 +140,32 @@ This branch is about Array operation.
         for(int i=0;i<nums.length;i++)
             sum+=nums[i];
         return total-sum;
+
+
+
+#.238. Product of Array Except Self
+    1.By using division, '0' must be consider:
+        No '0'
+        one '0'
+        two and more '0'
+        
+    2.No division: 
+        (a).By using extra result array to store the product of numbers before nums[i];
+        (b).By using nums array to store the product of numbers after nums[i](include num[i]).
+        (c).Get the products of each pairs of result[i] and nums[i+1].
+
+            for(int i=0;i<l;i++){
+                if(i == 0)
+                    output[i] = 1;
+                else
+                    output[i] = output[i-1] * nums[i-1];
+            }
+            for(int i=l-1;i>=0;i--){
+                if(i < l-1 && i != 0){
+                    nums[i] = nums[i] * nums[i+1];
+                    output[i] = output[i] * nums[i+1];
+                }else if(i == 0)
+                    output[i] = nums[i+1];
+            }
+            
+            
