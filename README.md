@@ -201,11 +201,39 @@ This branch is about Array operation.
         } 
 
 To check the length of majority number ,then compare the length with n/3;
+           
+           
+           
+           
+#.228. Summary Ranges
             
+Need to pay attention to the first element, last element and single element;           
             
-            
-            
-            
+
+                    if(i+1<nums.length && nums[i+1] == nums[i]+1){//element which nums[i+1] == nums[i]+1
+                        right = nums[i+1];
+                        count++;
+                    }else if(i+1<nums.length && nums[i+1] != nums[i]+1){//element which nums[i+1] != nums[i]+1
+                        count++;
+                        if(count == 1){
+                            result.add(Integer.toString(nums[i]));
+                            count = 0;
+                        }else if(count > 1){
+                            String temp = left + "->" + right;
+                            result.add(temp);
+                            count = 0;
+                        }
+                        left = nums[i+1];
+                    }else if(i == nums.length-1){//last element
+                        if(nums[i]==nums[i-1]+1){
+                            right = nums[i];
+                            String temp = left + "->" + right;
+                            result.add(temp);
+                        }else{
+                            result.add(Integer.toString(nums[i]));
+                        }                    
+                    }
+
             
             
             
