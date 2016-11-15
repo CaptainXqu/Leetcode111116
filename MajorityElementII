@@ -1,0 +1,26 @@
+/*
+Sorted first. T(n)=O(nlogn)
+*/
+public class Solution {
+    public List<Integer> majorityElement(int[] nums) {
+        Arrays.sort(nums);
+        List<Integer> result = new ArrayList<Integer>();
+        for(int i=0;i<nums.length;i++){
+            int j = i;
+            int count = 1;
+            while(j+1 < nums.length && nums[j+1] == nums[i]){
+                count++;
+                j++;
+            }
+            if(count > nums.length/3){
+                result.add(nums[i]);
+                i = j;
+            }
+        }
+        return result;
+    }
+}
+
+/*
+By using Moore majority vote algorithm, n/2 has one number, n/3 has two numbers.
+*/
