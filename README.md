@@ -174,9 +174,33 @@ This branch is about Array operation.
             }
             
             
-            
-            
-            
+
+#.229. Majority Element II
+
+1.Sorted(T(n)=O(nlogn))
+
+2.Moore vote algorithm 
+
+(The length greater than n/2 has one number, the length greater than n/3 has at most two number exist.)
+
+        for(int num:nums){
+            if(majority1 == num){
+                count1++;
+            }else if(majority2 == num){
+                count2++;
+            }else if(count1 == 0){
+                majority1 = num;
+                count1++;
+            }else if(count2 == 0){
+                majority2 = num;
+                count2++;
+            }else{
+                count1--;
+                count2--;
+            }
+        } 
+
+To check the length of majority number ,then compare the length with n/3;
             
             
             
