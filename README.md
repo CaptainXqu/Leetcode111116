@@ -234,7 +234,13 @@ Need to pay attention to the first element, last element and single element;
                         }                    
                     }
 
-            
+
+
+#.4. Median of Two Sorted Arrays    
+
+1.Merger two array.
+2.Pay attention on (int)5/(int)2
+
             
             
             
