@@ -239,7 +239,28 @@ Need to pay attention to the first element, last element and single element;
 #.4. Median of Two Sorted Arrays    
 
 1.Merger two array.
+
 2.Pay attention on (int)5/(int)2
+
+#.11. Container With Most Water
+
+By using two direction pointer,keep tracking the most height pairs of line.
+
+
+        while(left < right){
+            int area = 0;
+            if(height[left] <= height[right]){
+                area = height[left] * (right - left);
+                left++;
+            }else{
+                area = height[right] * (right - left);
+                right--;
+            }
+            if(area > maxArea)
+                maxArea = area;
+        }
+
+
 
             
             
