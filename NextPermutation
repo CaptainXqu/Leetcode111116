@@ -1,0 +1,67 @@
+public class Solution {//xqu
+    public void nextPermutation(int[] nums) {
+        int len = nums.length;
+        int desCount = 0;
+        for(int i=0;i<len-1;i++){//Check if the array is in descending order
+            if(nums[i]>=nums[i+1])
+                desCount++;
+        }
+        if(desCount == len-1){//If the array in decending order
+            int left = 0;
+            int right = len-1;
+            swap(nums,left,right);//swap each pair of symmetric element
+        }else if(nums[len-2] < nums[len-1]){//If the array in ascending order or chaos
+            int temp = nums[len-1];
+            nums[len-1] = nums[len-2];
+            nums[len-2] = temp;
+        }else{
+            int indexOfOri = 0;
+            int indexOfNext = 0;
+            int value = 0;
+            for(int i=len-1;i>0;i--){//Mark the prefix element and its index
+                if(nums[i-1] < nums[i]){
+                    indexOfOri = i-1;
+                    value = nums[i-1];
+                    break;
+                }
+            }
+            for(int i=len-1;i>=0;i--){//Mark the element which is less bigger than value
+                if(nums[i] > value){
+                    indexOfNext = i;
+                    break;
+                }
+            }
+            int temp = nums[indexOfOri];
+            nums[indexOfOri] = nums[indexOfNext];
+            nums[indexOfNext] = temp;
+            
+            sort(nums,indexOfOri);//Sort the rest of the element
+        }
+    }
+    
+    private void swap(int[] nums,int left, int right){
+        while(right < nums.length && left < right){
+                int temp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = temp;
+                left++;
+                right--;
+        }
+    }
+    private void sort(int[] nums,int index){
+        int indexOfOri = index;
+        int len = nums.length;
+        for(int i=indexOfOri+1;i<len-1;i++){
+            for(int j=i+1;j<len;j++){
+                if(nums[i] >= nums[j]){
+                    int temp = nums[i];
+                    nums[i] = nums[j];
+                    nums[j] = temp;
+                }
+            }
+        }
+    }
+    
+    
+
+}
