@@ -1,0 +1,44 @@
+public class Solution {//xqu
+    public int[] searchRange(int[] nums, int target) {
+        int[] searchRange = {-1,-1};
+        int left = 0;
+        int right = nums.length-1;
+        int mid = (left + right)/2;
+        int index = -1;
+        while(left <= right){
+            if(target == nums[mid]){
+                index = mid;
+                break;
+            }else if(target == nums[left]){
+                index = left;
+                break;                
+            }else if(target == nums[right]){
+                index = right;
+                break;                
+            }else{
+                if(target < nums[mid])
+                    right = mid - 1;
+                else
+                    left = mid + 1;
+                mid = (left + right)/2;
+            }
+        }
+        if(index == -1)
+            return searchRange;
+        for(int i=index;i<nums.length;i++){
+            if(nums[i] == target){
+                right = i;
+            }else
+                break;
+        }
+        for(int i=index;i>=0;i--){
+            if(nums[i] == target){
+                left = i;
+            }else
+                break;
+        }
+        searchRange[0] = left;
+        searchRange[1] = right;
+        return searchRange;
+    }
+}
