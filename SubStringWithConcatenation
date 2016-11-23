@@ -1,0 +1,47 @@
+public class Solution {//xqu
+    public static List<Integer> findSubstring(String s, String[] words) {
+        if(words == null || words.length == 0 && s.length() == 0) return null;
+        int L = s.length(), len = words[0].length(), length = words.length;
+        List <Integer> result = new ArrayList<Integer>();
+        Map <String,Integer> wordFrequency = new HashMap<String,Integer>();
+        for(String temp : words){//put all words into map of frequency
+            if(!wordFrequency.containsKey(temp))
+                wordFrequency.put(temp,1);
+            else
+                wordFrequency.put(temp,wordFrequency.get(temp)+1);
+        }
+        for(int i=0;i<len;i++){
+            int count = 0;
+            int left = i;
+            Map <String,Integer> windowCache = new HashMap<String,Integer>();
+            for(int j=i;j<=L-len;j=j+len){
+                String curr = s.substring(j,j+len);
+                if(wordFrequency.containsKey(curr)){//Current word in frequent map
+                    if(!windowCache.containsKey(curr))
+                        windowCache.put(curr,1);
+                    else
+                        windowCache.put(curr,windowCache.get(curr)+1);
+                    count++;
+                    while(windowCache.get(curr) > wordFrequency.get(curr)){
+                        String leftWord = s.substring(left,left+len);
+                        windowCache.put(leftWord,windowCache.get(leftWord)-1);
+                        count--;
+                        left += len;
+                    }
+                    if(count == length){
+                        result.add(left);
+                        String leftWord = s.substring(left,left+len);
+                        windowCache.put(leftWord,windowCache.get(leftWord)-1);
+                        count--;
+                        left += len;
+                    }
+                }else{//Current word was not in frequent map
+                    windowCache.clear();
+                    count = 0;
+                    left = j + len;//Scan from next word 
+                }
+            }//inner loop
+        }
+        return result;
+    }
+}
